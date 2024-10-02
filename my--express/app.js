@@ -7,17 +7,21 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const bodyParser = require('body-parser');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public',express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -27,6 +31,16 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.get('/contact', (req, res) => {
+  res.render('contact');  // Renders the contact.ejs file
+});
+
+app.post('/submit-contact', (req, res) => {
+  // Handle the form submission
+  const { name, email, message } = req.body;
+  console.log('Form submitted:', { name, email, message });
+  res.send('Thank you for contacting us!');
+});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
