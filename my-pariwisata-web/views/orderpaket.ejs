@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Travel Package</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      width: 50%;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Order Travel Package</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/paketwisata">Travel Packages</a></li>
+        <li><a href="/orderpaket">Order a Package</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <form action="/orderpaket/submit" method="POST">
+    <!-- Customer's full name -->
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+
+    <!-- Customer's email -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+    <!-- Customer's phone number -->
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+    <!-- Package selection -->
+    <label for="package">Select Package:</label>
+    <select id="package" name="package" required>
+      <% packages.forEach(function(package) { %>
+        <option value="<%= package.id %>"><%= package.name %> - <%= package.price %></option>
+      <% }); %>
+    </select>
+
+    <!-- Date selection -->
+    <label for="date">Travel Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <!-- Submit button -->
+    <button type="submit">Submit Order</button>
+  </form>
+
+</body>
+</html>

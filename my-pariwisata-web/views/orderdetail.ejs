@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+</head>
+<body>
+  <header>
+    <h1>Order Details</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/paketwisata">Travel Packages</a></li>
+        <li><a href="/orderpaket">Order a Package</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2>Order Information</h2>
+    <p><strong>Customer Name:</strong> <%= order.name %></p>
+    <p><strong>Email:</strong> <%= order.email %></p>
+    <p><strong>Phone Number:</strong> <%= order.phone %></p>
+    <p><strong>Package:</strong> <%= order.packageName %></p>
+    <p><strong>Travel Date:</strong> <%= order.date %></p>
+    <p><strong>Total Price:</strong> <%= order.totalPrice %></p>
+  </section>
+</body>
+</html>
