@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Paket Wisata Pulau Tidung Super Lengkap</h1>
+
+    <h2>Harga Paket Pulau Tidung Super Lengkap</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Peserta</th>
+                <th>Boat Fery (2 Hari 1 Malam)</th>
+                <th>Boat Fery (3 Hari 2 Malam)</th>
+                <th>Speedboat (2 Hari 1 Malam)</th>
+                <th>Speedboat (3 Hari 2 Malam)</th>
+                <th>Boat Bahari Express (2 Hari 1 Malam)</th>
+                <th>Boat Bahari Express (3 Hari 2 Malam)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% paketTidung.forEach(function(paket) { %>
+                <tr>
+                    <td><%= paket.peserta %></td>
+                    <td><%= paket.hargaBoatFery2H1M %></td>
+                    <td><%= paket.hargaBoatFery3H2M %></td>
+                    <td><%= paket.hargaSpeedboat2H1M %></td>
+                    <td><%= paket.hargaSpeedboat3H2M %></td>
+                    <td><%= paket.hargaBahariExpress2H1M %></td>
+                    <td><%= paket.hargaBahariExpress3H2M %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <h2>Fasilitas Paket Pulau Tidung Super Lengkap</h2>
+    <div class="fasilitas">
+        <ul>
+            <% fasilitas.forEach(function(item) { %>
+                <li><%= item %></li>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
