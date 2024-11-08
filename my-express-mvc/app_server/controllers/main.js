@@ -1,6 +1,6 @@
 //controller index
 const index = (req, res) => {
-    res.render('index', {title : 'Express SLEbeweeee' });
+    res.render('index', {title : 'Express Generator' });
 }
 //controller kontak
 const kontak = (req, res) =>{
