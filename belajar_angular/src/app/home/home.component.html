@@ -1,2 +1,12 @@
-<p>home works!</p>
-<h1>aloooo</h1>
+<section>
+    <form action="">
+        <input type="text" placeholder="filter by city">
+        <button class="primary" type="button">Search</button>
+    </form>
+</section>
+<section class="results">
+    <app-housing-location 
+        *ngFor="let housingLocation of housingLocationList"
+        [housingLocation]="housingLocation"></app-housing-location>
+  
+</section>
