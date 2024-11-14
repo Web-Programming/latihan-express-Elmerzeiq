@@ -1,6 +1,7 @@
+
 import { Component } from '@angular/core';
-import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { CommonModule } from '@angular/common';
+import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { HousingLocation } from '../housing-location';
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent {
       name: "Citra Grand City",
       city: "Palembang",
       state: "ID",
-      photo: "https://citragrandcity.co.id/wp-content/uploads/2021/05/Calathea.jpg",
+      photo: "https://incomerealty.id/wp-content/uploads/2022/09/Dijual-Rumah-Citra-Grand-City-1.jpeg",
       availableUnits: 12,
       wifi: true,
       laundry: true
@@ -26,10 +27,11 @@ export class HomeComponent {
       name: "Citra Land",
       city: "Palembang",
       state: "ID",
-      photo: "https://rumahsaya.bca.co.id/media/rumahsaya/Images/Web/ef14278a-5591-ef11-910e-005056aa44b9",
-      availableUnits: 10,
+      photo: "https://incomerealty.id/wp-content/uploads/2023/10/DIJUAL-RUMAH-KOMPLEK-FORTUNATE-PARK-CITRA-GRAND-CITY-PALEMBANG-03.jpg",
+      availableUnits: 12,
       wifi: true,
-      laundry: true
-    },
+      laundry: true 
+    }
   ]
+
 }
