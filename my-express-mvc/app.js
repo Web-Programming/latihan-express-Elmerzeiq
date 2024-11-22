@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+//load mongodb db connection
 require('./app_server/models/db');
 
 var indexRouter = require('./app_server/routes/index');
@@ -27,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', mahasiswasRouter);
 app.use('/housing', housingRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
