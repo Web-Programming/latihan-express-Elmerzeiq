@@ -10,8 +10,8 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-     <article >
-      <img class="listing-photo" [src]="housingLocation?.photo"
+     <article>
+      <img class="listing-photo" [src]="baseUrl + housingLocation?.photo"
         alt="Exterior photo of {{housingLocation?.name}}"/>
       <section class="listing-description">
         <h2 class="listing-heading">{{housingLocation?.name}}</h2>
@@ -32,13 +32,12 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
           <input type="text" id="first-name" formControlName="firstName" placeholder="Input first name">
           <label for="last-name">Last Name</label>
           <input type="text" id="last-name" formControlName="lastName" placeholder="Input last name">
-          
           <label for="email">Email</label>
           <input type="email" id="email" formControlName="email" placeholder="Input email">
           <button type="submit" class="primary">Apply</button>
         </form>
       </section>
-    </article>
+     </article>
   `,
   styleUrl: './details.component.css'
 })
@@ -55,16 +54,24 @@ export class DetailsComponent {
 
   constructor() {
     this.housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(this.housingLocationId)
-    console.table(this.housingLocation)
+    this.housingService.getHousingLocationById(this.housingLocationId)
+      .then(location => {
+        this.housingLocation = location;
+        console.table(this.housingLocation);
+      })
   }
 
   submitApplyForm() {
-    //panggil API simpan data registarsi via service
+    // alert("Hallo you submit a form");
+    // alert("Hallo : " + this.applyForm.value.firstName + " " + this.applyForm.value.lastName);
+
+    // panggil API simpan data registrasi via service
     this.housingService.submitApplication(
       this.applyForm.value.firstName ?? '',
       this.applyForm.value.lastName ?? '',
       this.applyForm.value.email ?? '',
     )
   }
+
+  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 }
