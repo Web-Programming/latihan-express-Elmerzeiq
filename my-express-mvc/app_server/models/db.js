@@ -1,14 +1,12 @@
-let mongoose = require("mongoose");
-let dbURL = "mongodb://localhost:27017/pawSI52";
+const mongoose = require("mongoose");
 
-mongoose.connect(dbURL, {
-   //useNewURLParser: true
-});
+// URL koneksi ke MongoDB
+const dbURI = "mongodb://127.0.0.1:27017/pawsi52"; // Gunakan nama database 'pawSI52'
 
-mongoose.connection.on("connected", () => {
-   console.log("connected to MongoDB");
-});
+// Koneksi ke MongoDB
+mongoose
+    .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("MongoDB connected successfully to pawSI52"))
+    .catch((err) => console.error("MongoDB connection error:", err));
 
-mongoose.connection.on("error", (error) => {
-   console.log("disconnected from MongoDB");
-});
+module.exports = mongoose;
