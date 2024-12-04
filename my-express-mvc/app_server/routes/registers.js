@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const registerController = require("../controllers/controllerRegister.js");
+const registerController = require("../controllers/controllerRegister"); // Pastikan ini sesuai
 
-// Fungsi dan Rute Index Kita Gunakan Untuk Memanggil Semua Data dalam Database MongoDB
-//router.get("/", registerController.Index);
-router.post("/register", registerController.Insert);
+// Rute untuk menampilkan semua data
+router.get('/', registerController.index);
+
+// Rute untuk menambahkan data baru
+router.post('/tambah', registerController.insert); // Pastikan fungsi insert terdefinisi di controllerRegister.js
+
 module.exports = router;
